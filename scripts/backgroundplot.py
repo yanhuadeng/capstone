@@ -4,7 +4,7 @@ import pandas as pd
 from bokeh.plotting import figure, show, output_file
 from bokeh.palettes import brewer
 
-N = 20
+N = 30
 categories = ['y' + str(x) for x in range(10)]
 data = {}
 data['x'] = np.arange(N)
@@ -34,7 +34,7 @@ p = figure()
 
 p.patches([x2] * len(areas), [areas[cat] for cat in categories],
           color=colors, alpha=0.8, line_color=None)
-p.background_fill = 'black'
+p.background_fill_color = 'black'
 
 output_file("brewer.html", title="brewer.py example")
 

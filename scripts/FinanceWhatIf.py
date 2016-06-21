@@ -35,6 +35,8 @@ class FinanceWhatIf():
         self.deltaInd = deltaInd
         self.data = self.getFinancialData()
         self.regCoeff, self.olsDict = self.computeRegression()
+        self.startPtVal = 0
+        self.endPtVal = 0
         # self.portfolioPlot()
 
 
@@ -76,7 +78,7 @@ class FinanceWhatIf():
         x = self.retDF[self.indexticker]
         Nplt = len(self.ticker)-1
         for n in range(Nplt):
-            plt.subplot(Nplt,1,n)
+            plt.subplot(Nplt,1,n+1)
             plt.plot(x, self.retDF[self.retDF.columns[n]], 'o', label="data")
             plt.plot(x, self.olsDict[self.retDF.columns[n]].fittedvalues, 'r--.')
             # plt.title = self.retDF.columns[n]
@@ -119,8 +121,8 @@ class FinanceWhatIf():
         scaleFactor = 2 ** (2.0 * hurstExponent)
         numPts = len(self.data)
 
-        startPtVal = self.data.sum(axis=1).values[-1]
-        endPtVal = startPtVal * totalChange  + startPtVal
+        self.startPtVal = self.data.sum(axis=1).values[-1]
+        self.endPtVal = self.startPtVal * totalChange  + self.startPtVal
 
         brownianVals = []
         variance = 5000
@@ -135,19 +137,26 @@ class FinanceWhatIf():
             BrownianBridge(x0, y0, xm, ym+delta, variance/scaleFactor, scaleFactor, brownianVals)
             BrownianBridge(xm, ym+delta, x1, y1, variance/scaleFactor, scaleFactor, brownianVals)
 
-        BrownianBridge(0, startPtVal, numPts, endPtVal, variance, scaleFactor, brownianVals)
+        BrownianBridge(0, self.startPtVal, numPts, self.endPtVal, variance, scaleFactor, brownianVals)
+
+        # brownianVals = brownianVals.append(endPtVal)
         return brownianVals
 
 def main():
-    ticker = ["^GSPC", "GOOG", "AAPL", "MSFT", "FB"]
-    # NSDAQ100 = open('NAS')
+    index = ["^GSPC"]
+    ticker = ["GOOG", "AAPL", "MSFT", "FB"]
+
+    f = open('nasdaq100.txt', 'rb')
+    NSDAQ100 = f.read().strip().split()
+
+    NASDAQ100 = NSDAQ100.insert(0, index[0])
     source = "yahoo"
     period = 3
     deltaInd = .001
-    N=100
+    N=4
     WT = FinanceWhatIf(NSDAQ100[0:N], source, period,deltaInd)
     WT.portfolioPlot()
-    WT.regressionPlots()
+    # WT.regressionPlots()
 
 if __name__ == "__main__":
     main()

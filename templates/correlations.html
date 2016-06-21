@@ -1,0 +1,149 @@
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Portfolio Analysis</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <!--<link href="../static/bootstrap/css/agency.css" rel="stylesheet">-->
+
+    <!-- Custom Fonts -->
+    <link href="static/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="/">Portfolio Analysis</a>
+            </div>
+
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading"> &emsp;</h2>
+                    <h4 class="section-heading"> How each component affects one another? </h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <p>Beta is the slope of the line that best fits the data against the index.
+                    It is a historical measure of the stock's volatilities against the factor.
+                    For S&P500 is the a good measure of the market as a whole. When looking at S&P500,
+                    the return generated from a portfolio can be attributed to overall market returns
+                </p>
+                <ul>
+                    <li> B = 1 move with market </li>
+                    <li> B > 1 more volatile than the market (high tech) </li>
+                    <li> B < 1 less volatile than the market (utility companies) </li>
+                    <li> B < 0 inverse of the market (gold)</li>
+                    <li> B = 0 cash, doesn't change with the market </li>
+                </ul>
+
+            </div>
+            <div class = "row">
+                <p>
+                    There are two caveats of in using beta
+                </p>
+                <ul>
+                    <li> Beta is a measurement of systematic risk, which is the risk that the market as a whole faces. It is based on the effect of market wide risk, not the risk of the company</li>
+                    <li> Beta is a historical measure of stock's volatility, this means that past volatility doesn't necessary predict future beta or future volatility. Study of Gene Fama and Ken French: Cross-section of expected stock returns, exam reliability of past beta concluded that for individual stocks paste beta is not a good predictor of future beta. Beta tends to revert back to 1.</li>
+                </ul>
+            </div>
+
+            <!--<img src="../pltfigs/test.jpeg" alt="" style="width:128px;height:128px;">-->
+             {% for k in range(2) %}
+                <div class="row">
+                    <div class="col-lg-12 center">
+                        <img class="img-circle img-responsive" src="../pltfigs/fig{{k}}.jpeg" alt="">
+                    </div>
+
+                </div>
+                <br>
+             {% endfor %}
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; 2016</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li><a href="#"><i class="fa fa-github"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- jQuery -->
+    <script src="../static/bootstrap/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../static/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="../static/bootstrap/js/classie.js"></script>
+    <script src="../static/bootstrap/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="../static/bootstrap/js/jqBootstrapValidation.js"></script>
+    <script src="../static/bootstrap/js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../static/bootstrap/js/agency.js"></script>
+
+</body>
+
+</html>
