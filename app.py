@@ -64,7 +64,7 @@ def stock():
             ax.plot(x, portRet.olsDict[portRet.retDF.columns[n]].fittedvalues, 'r--.')
             plt.ylabel(portRet.ticker[n+1])
             plt.xlabel(portRet.indexticker)
-            fig.savefig('pltfigs/fig'+str(n)+'.jpeg')
+            # fig.savefig('pltfigs/fig'+str(n)+'.jpeg')
 
     regressionPlots(portRet)
 
