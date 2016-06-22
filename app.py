@@ -31,7 +31,7 @@ def pltmag():
 def stock():
     stockcodeStr = request.args.get('stockcode', 'GOOG, FB', type=str)
     indexticker = request.args.get('indexticker', '^GSPC', type=str)
-    deltaInd = request.args.get('delta', 0.02, type=int)
+    deltaInd = request.args.get('delta', 0.01, type=int)
     stockperiod = request.args.get('period', 1.0, type=float)
 
     stockcode = stockcodeStr.replace(' ', '').strip('').split(",")
