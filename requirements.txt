@@ -1,4 +1,4 @@
-pip=8.1.2
+pip==8.1.2
 backports-abc==0.4
 backports.ssl-match-hostname==3.5.0.1
 bokeh==0.11.1
