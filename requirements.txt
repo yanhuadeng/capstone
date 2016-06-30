@@ -41,8 +41,6 @@ Werkzeug==0.11.10
 
 setuptools >= 1.4
 CVXOPT >= 1.1.6
-ECOS >= 2
-SCS >= 1.1.3
 CVXcanon == 0.0.22
 
 cvxpy==0.4.2
