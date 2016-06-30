@@ -1,12 +1,9 @@
+pip=8.1.2
 backports-abc==0.4
 backports.ssl-match-hostname==3.5.0.1
 bokeh==0.11.1
 certifi==2016.2.28
 click==6.6
-CVXcanon==0.1.0
-cvxopt==1.1.8
-cvxpy==0.4.2
-cycler==0.10.0
 dill==0.2.5
 ecos==2.0.4
 fastcache==1.0.2
@@ -40,4 +37,8 @@ statsmodels==0.6.1
 toolz==0.8.0
 tornado==4.3
 Werkzeug==0.11.10
+CVXcanon==0.1.0
+cvxopt==1.1.8
+cvxpy==0.4.2
+cycler==0.10.0
 
