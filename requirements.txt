@@ -38,7 +38,6 @@ toolz==0.8.0
 tornado==4.3
 Werkzeug==0.11.10
 CVXcanon==0.1.0
-cvxopt==1.1.8
 cvxpy==0.4.2
 cycler==0.10.0
 
