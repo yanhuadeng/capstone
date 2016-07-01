@@ -4,7 +4,7 @@ from bokeh.resources import INLINE
 from flask import Flask, render_template, request, redirect, send_file
 import numpy as np
 from itertools import ifilter
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import base64
 from scripts import PortfolioAnalysis
 
@@ -26,16 +26,16 @@ def pltmag():
     return render_template('pltmag.html')
 
 
-def regressionPlots(portRet):
-    x = portRet.retDF[portRet.indexticker]
-    Nplt = len(portRet.ticker) - 1
-    for n in range(Nplt):
-        fig = plt.figure()
-        ax = fig.add_subplot(1, 1, 1)
-        ax.plot(x, portRet.retDF[portRet.retDF.columns[n]], 'o', label="data")
-        ax.plot(x, portRet.olsDict[portRet.retDF.columns[n]].fittedvalues, 'r--.')
-        plt.ylabel(portRet.ticker[n + 1])
-        plt.xlabel(portRet.indexticker)
+# def regressionPlots(portRet):
+#     x = portRet.retDF[portRet.indexticker]
+#     Nplt = len(portRet.ticker) - 1
+#     for n in range(Nplt):
+#         fig = plt.figure()
+#         ax = fig.add_subplot(1, 1, 1)
+#         ax.plot(x, portRet.retDF[portRet.retDF.columns[n]], 'o', label="data")
+#         ax.plot(x, portRet.olsDict[portRet.retDF.columns[n]].fittedvalues, 'r--.')
+#         plt.ylabel(portRet.ticker[n + 1])
+#         plt.xlabel(portRet.indexticker)
         # fig.savefig('pltfigs/fig'+str(n)+'.jpeg')
 
 # Main Process
@@ -70,7 +70,7 @@ def stock():
         fig_corr.line(x, PA.ols_dict[PA.daily_ret.columns[n]].fittedvalues, color = colors[n])
     script_corr, div_corr = components(fig_corr, INLINE)
     # Portfolio risk plots
-    risks, returns, allocs = PA.port_opt_classic(PA.daily_ret.ix[:, 0:len(stockcode) - 1])
+    # risks, returns, allocs = PA.port_opt_classic(PA.daily_ret.ix[:, 0:len(stockcode) - 1])
     risksrand, returnsrand = PA.port_alloc_rand(PA.daily_ret.ix[:, 0:len(stockcode) - 1])
 
     fig_risk = figure(title="Risks and Returns for " + stockcodeStr,
@@ -78,13 +78,13 @@ def stock():
                  x_axis_label='Risks',
                  plot_width=700, plot_height=480,
                  toolbar_location=None)
-    fig_risk.line(risks, returns, color='red')
+    # fig_risk.line(risks, returns, color='red')
 
     fig_risk.scatter(risksrand, returnsrand, radius=0.0001, fill_color = 'red', fill_alpha=0.2)
     script_risk, div_risk = components(fig_risk, INLINE)
 
 
-    past, future = PA.cal_prediction(allocs[0].reshape(1,len(allocs[0])))
+    past, future = PA.cal_prediction(np.ones([1, len(stockcode)-1])/float(len(stockcode)-1)) #allocs[0].reshape(1,len(allocs[0]))
     fig = figure(title="Total Portfolio Returns for "+ stockcodeStr,
                  y_axis_label='Returns',
                  x_axis_label = 'Date',
@@ -101,10 +101,9 @@ def stock():
 
     coefficients = ((PA.reg_coefficients).ix[1:].T.to_dict()).values()
 
-    allocations = allocs[0].reshape(1, len(allocs[0]))
+    # allocations = allocs[0].reshape(1, len(allocs[0]))
 
     html = render_template('index3.html', coefficients=coefficients,
-                           port_opt_params = (risks[0], returns[0], allocations),
                            corr_script=script_corr, corr_div=div_corr,
                            plot_script=script, plot_div=div,
                            risk_script=script_risk, risk_div=div_risk,
