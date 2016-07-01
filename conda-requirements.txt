@@ -1,5 +1,5 @@
 scipy
 numpy
 pandas
-nomkl
 cvxopt
+cvxpy
