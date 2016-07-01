@@ -38,6 +38,5 @@ statsmodels==0.6.1
 toolz==0.8.0
 tornado==4.3
 Werkzeug==0.11.10
-setuptools >= 1.4
-
+cvxpy==0.4.2
 
