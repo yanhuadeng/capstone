@@ -1,7 +1,7 @@
 import pandas as pd
-import matplotlib
-matplotlib.use('tkAgg')
-import matplotlib.pyplot as plt
+# import matplotlib
+# matplotlib.use('tkAgg')
+# import matplotlib.pyplot as plt
 import datetime
 from pandas_datareader import data, wb
 import pickle
