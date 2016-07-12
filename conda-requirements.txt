@@ -4,3 +4,4 @@ pandas
 cvxopt
 omnia scs
 cvxpy
+statsmodels
