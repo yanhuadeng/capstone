@@ -2,6 +2,6 @@ scipy
 numpy
 pandas
 cvxopt
-omnia scs
+scs
 cvxpy
 statsmodels
