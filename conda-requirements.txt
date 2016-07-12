@@ -1,4 +1,6 @@
 scipy
 numpy
 pandas
-
+cvxopt
+omnia scs
+cvxpy
