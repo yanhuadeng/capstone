@@ -2,6 +2,4 @@ scipy
 numpy
 pandas
 cvxopt
-scs
-cvxpy
 statsmodels
