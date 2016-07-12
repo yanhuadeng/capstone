@@ -1,11 +1,7 @@
 from bokeh.embed import components
 from bokeh.plotting import figure
 from bokeh.resources import INLINE
-from flask import Flask, render_template, request, redirect, send_file
-import numpy as np
-from itertools import ifilter
-# import matplotlib.pyplot as plt
-import base64
+from flask import Flask, render_template, request, redirect
 from bokeh.palettes import brewer
 
 from scripts import PortfolioAnalysis, PCA

@@ -1,6 +1,5 @@
 bokeh==0.11.1
 click==6.6
-CVXcanon==0.1.0
 cvxpy==0.4.2
 cycler==0.10.0
 ecos==2.0.4
@@ -14,7 +13,3 @@ requests==2.10.0
 requests-file==1.4
 scs==1.2.6
 simplejson==3.8.0
-six==1.10.0
-toolz==0.8.0
-tornado==4.3
-Werkzeug==0.11.10
