@@ -8,7 +8,7 @@ import datetime
 # import matplotlib.pyplot as plt
 
 import statsmodels.api as sm
-import cvxpy
+# import cvxpy
 from bokeh.plotting import figure, show, output_file
 from bokeh.palettes import brewer
 

@@ -4,7 +4,7 @@ import pandas as pd
 # import matplotlib.pyplot as plt
 import datetime
 from pandas_datareader import data, wb
-import pickle
+# import pickle
 import numpy as np
 from bokeh.plotting import figure, show, output_file, ColumnDataSource
 from bokeh.palettes import brewer
