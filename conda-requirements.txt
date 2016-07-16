@@ -1,5 +1,5 @@
 nomkl
-numpy
-pandas
-cvxopt
-statsmodels
+numpy==1.10.4
+pandas==0.18.0
+cvxopt==1.1.8
+statsmodels==0.6.1

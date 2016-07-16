@@ -175,7 +175,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4 portfolio-item">
+                <div class="col-lg-4 portfolio-item">
                     <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
@@ -187,11 +187,11 @@
 
                     </a>
                     <div class="portfolio-caption">
-                        <h4>Portfolio Components Correlations</h4>
-                        <p class="text-muted">How the component affects one another?</p>
+                        <h4>Component Correlations</h4>
+                        <p class="text-muted">How does each component affect one another?</p>
                     </div>
                 </div>
-                <div class="col-md-4 portfolio-item">
+                <div class="col-lg-4 portfolio-item">
                     <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
@@ -203,12 +203,12 @@
                         </div>
                     </a>
                     <div class="portfolio-caption">
-                        <h4>Portfolio Optimization</h4>
-                        <p class="text-muted">How diversity improves returns and reduces risks?</p>
+                        <h4>Allocation Optimization</h4>
+                        <p class="text-muted">How does diversity improve returns and reduce risks?</p>
                     </div>
                 </div>
 
-                <div class="col-md-4 portfolio-item">
+                <div class="col-lg-4 portfolio-item">
                     <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
@@ -220,8 +220,8 @@
                         </div>
                     </a>
                     <div class="portfolio-caption">
-                        <h4>Market Timing</h4>
-                        <p class="text-muted">What are some interesting points of the market?</p>
+                        <h4>Points of Interest</h4>
+                        <p class="text-muted">One way to determine the points of interest in a portfolio?</p>
                     </div>
                 </div>
 
@@ -250,11 +250,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; 2016</span>
+                    <span class="copyright">Copyright &copy; 2016 Y.H.D.</span>
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-github"></i></a>
+                        <li><a href="https://github.com/yanhuadeng/portfolio-analysis"><i class="fa fa-github"></i></a>
                         </li>
                         <!--<li><a href="#"><i class="fa fa-facebook"></i></a>-->
                         <!--</li>-->
@@ -292,8 +292,7 @@
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
                             <!-- Project Details Go Here -->
-                            <h4>Portfolio Components Correlations</h4>
-                            <p class="item-intro text-muted">Linear Regression on Factor</p>
+                            <h4>Portfolio Component Correlations</h4>
                                     {{ corr_script|indent(4)|safe }}
                                     {{ corr_div|indent(4)|safe }}
                             <div class="row">
@@ -315,13 +314,139 @@
                                 </tbody>
                               </table>
                             </div>
+                    </div>
 
-                            <p class="item-intro text-muted">
-                            When $$a \ne 0$$, there are two solutions to $$ax^2 + bx + c = 0$$ and they are $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
-                            </p>
+                        <div align = "left">
 
+
+                                <div class="WordSection1">
+
+                                <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt"><b style="mso-bidi-font-weight:normal"><o:p>&nbsp;</o:p></b></p>
+
+                                <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt"><b style="mso-bidi-font-weight:normal">Introduction<o:p></o:p></b></p>
+
+                                <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt">The portfolio
+                                analysis provides an intuitive understanding of how given a set of factors
+                                affect the components and the future behavior.<span style="mso-spacerun:yes">&nbsp; </span>Such analysis would be beneficial mostly
+                                to the smaller portfolios or individual investors. </p>
+
+                                <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt"><o:p>&nbsp;</o:p></p>
+
+                                <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt">The choice
+                                of factors is really important! Traditionally, similar analyses use an index as
+                                a primary factor, but diverse macro-economic factors such as interest rate, GDP,
+                                currencies, unemployment rate might provide better insights. </p>
+
+                                <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt"><o:p>&nbsp;</o:p></p>
+
+                                <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt"><o:p>&nbsp;</o:p></p>
+
+                                <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt"><b style="mso-bidi-font-weight:normal">Theory<o:p></o:p></b></p>
+
+                                <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt">A portfolio can
+                                be comprised of any number of stocks over 0.5 – 3 <span class="GramE">years</span>
+                                period. The factors are variables that reflect overall economy and affect the
+                                portfolio</p>
+
+                                <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt"><o:p>&nbsp;</o:p></p>
+
+                                <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt">For the
+                                correlation analysis, the daily returns of each individual component is
+                                linearly regressed against daily returns of each factor, and the regression
+                                coefficients are used to predict changes in the portfolio.<span style="mso-spacerun:yes">&nbsp; </span></p>
+
+                                <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt"><o:p>&nbsp;</o:p></p>
+
+                                <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt">The regression
+                                is computed using the daily returns of the time series for either components or
+                                factors because the returns time series is stationary (constant variance and
+                                mean) while the absolute price is not.<span style="mso-spacerun:yes">&nbsp;
+                                </span>Regression over non-stationary series gives unstable results.<span style="mso-spacerun:yes">&nbsp; </span></p>
+
+                                <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt"><o:p>&nbsp;</o:p></p>
+
+                                <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt">Each
+                                component $y_i$ is assumed linearly related to $x_i$s:</p>
+
+                                <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt">
+                                    $y_i=\alpha_i+\beta _1*x_{i1}+…+\beta_p*x_{ip}$</p>
+
+                                <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt"><o:p>&nbsp;</o:p></p>
+
+                                <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt">$\alpha$ is
+                                the y-intercept, which is the part that cannot be explained by the factor, and
+                                usually indicates idiosyncratic risk. For this analysis, alpha is computed by
+                                adding a constant term to the regression. </p>
+
+                                <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt"><o:p>&nbsp;</o:p></p>
+
+                                <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt">$\beta$ is
+                                the slope of the line that best fits the data against the factor. It is a
+                                historical measure of the stock's volatilities against the factor. For
+                                S&amp;P500 is a good measure of the market as a whole. When looking at S&amp;P500,
+                                the return generated from a portfolio can be attributed to overall market
+                                returns. The value $\beta$ can be interpreted for these conditions:</p>
+
+                                <p class="MsoListParagraphCxSpFirst" style="margin-top:0in;margin-right:0in;
+                                margin-bottom:0in;margin-left:1.0in;margin-bottom:.0001pt;mso-add-space:auto;
+                                text-indent:-.25in;mso-list:l2 level2 lfo2"><!--[if !supportLists]--><span style="font-family:&quot;Courier New&quot;;mso-fareast-font-family:&quot;Courier New&quot;"><span style="mso-list:Ignore">o<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+                                </span></span></span><!--[endif]-->$\beta$ = 1, component moves with market</p>
+
+                                <p class="MsoListParagraphCxSpMiddle" style="margin-top:0in;margin-right:0in;
+                                margin-bottom:0in;margin-left:1.0in;margin-bottom:.0001pt;mso-add-space:auto;
+                                text-indent:-.25in;mso-list:l2 level2 lfo2"><!--[if !supportLists]--><span style="font-family:&quot;Courier New&quot;;mso-fareast-font-family:&quot;Courier New&quot;"><span style="mso-list:Ignore">o<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+                                </span></span></span><!--[endif]-->$\beta$ &gt; 1, component is more volatile than
+                                the market (high tech)</p>
+
+                                <p class="MsoListParagraphCxSpMiddle" style="margin-top:0in;margin-right:0in;
+                                margin-bottom:0in;margin-left:1.0in;margin-bottom:.0001pt;mso-add-space:auto;
+                                text-indent:-.25in;mso-list:l2 level2 lfo2"><!--[if !supportLists]--><span style="font-family:&quot;Courier New&quot;;mso-fareast-font-family:&quot;Courier New&quot;"><span style="mso-list:Ignore">o<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+                                </span></span></span><!--[endif]-->$\beta$ &lt; 1, component less volatile than the
+                                market (utility companies)</p>
+
+                                <p class="MsoListParagraphCxSpMiddle" style="margin-top:0in;margin-right:0in;
+                                margin-bottom:0in;margin-left:1.0in;margin-bottom:.0001pt;mso-add-space:auto;
+                                text-indent:-.25in;mso-list:l2 level2 lfo2"><!--[if !supportLists]--><span style="font-family:&quot;Courier New&quot;;mso-fareast-font-family:&quot;Courier New&quot;"><span style="mso-list:Ignore">o<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+                                </span></span></span><!--[endif]-->$\beta$ &lt; 0, component is inverse to the
+                                market (gold)</p>
+
+                                <p class="MsoListParagraphCxSpLast" style="margin-top:0in;margin-right:0in;
+                                margin-bottom:0in;margin-left:1.0in;margin-bottom:.0001pt;mso-add-space:auto;
+                                text-indent:-.25in;mso-list:l2 level2 lfo2"><!--[if !supportLists]--><span style="font-family:&quot;Courier New&quot;;mso-fareast-font-family:&quot;Courier New&quot;"><span style="mso-list:Ignore">o<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+                                </span></span></span><!--[endif]-->$\beta$ = 0 component doesn't change with
+                                the market (cash)</p>
+
+                                <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt"><o:p>&nbsp;</o:p></p>
+
+                                <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt">There are
+                                two caveats in prediction using $\beta$</p>
+
+                                <p class="MsoListParagraphCxSpFirst" style="margin-top:0in;margin-right:0in;
+                                margin-bottom:0in;margin-left:1.0in;margin-bottom:.0001pt;mso-add-space:auto;
+                                text-indent:-.25in;mso-list:l2 level2 lfo2"><!--[if !supportLists]--><span style="font-family:&quot;Courier New&quot;;mso-fareast-font-family:&quot;Courier New&quot;"><span style="mso-list:Ignore">o<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+                                </span></span></span><!--[endif]-->$\beta$ is a measurement of systematic risk,
+                                which is the risk that the market as a whole. It is based on the effect of
+                                market wide risk, not the risk of the company</p>
+
+                                <p class="MsoListParagraphCxSpLast" style="margin-top:0in;margin-right:0in;
+                                margin-bottom:0in;margin-left:1.0in;margin-bottom:.0001pt;mso-add-space:auto;
+                                text-indent:-.25in;mso-list:l2 level2 lfo2"><!--[if !supportLists]--><span style="font-family:&quot;Courier New&quot;;mso-fareast-font-family:&quot;Courier New&quot;"><span style="mso-list:Ignore">o<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+                                </span></span></span><!--[endif]-->$\beta$ is a historical measure of stock's
+                                volatility. This means that past volatility doesn't necessary predict future
+                                beta or future volatility. Study of Gene <span class="SpellE">Fama</span> and Ken
+                                French on cross-section of expected stock returns that examines the reliability
+                                of past $\beta$ indicates that individual stock’s past $\beta$ is not a good
+                                predictor of future $\beta$. $\beta$ tends to revert back to 1.</p>
+
+                                <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt"><o:p>&nbsp;</o:p></p>
+
+                                <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt"><o:p>&nbsp;</o:p></p>
+
+                                </div>
+
+                            </div>
                             <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i>Go Back</button>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -388,6 +513,48 @@
                                         </tbody>
                                     </table>
                                 </div>
+
+                            <div align="left">
+                                <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><b
+                                    style='mso-bidi-font-weight:normal'>Efficient Frontier<o:p></o:p></b></p>
+
+                                    <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>Efficient frontier
+                                    is a concept from modern portfolio theory introduced by Harry Markowitz. It
+                                    shows the ideal optimal portfolio allocation with highest expected return based
+                                    on the level of tolerated risks. This analysis shows the benefit of portfolio
+                                    diversification, by trading off expected returns with tolerated risk. </p>
+
+                                    <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+
+                                    <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>For
+                                    portfolio with no risk-free asset, the objective of EF is to minimize the
+                                    difference between the variance of portfolio return and the expected return,
+                                    while subject to the constraint that sum w is 1:</p>
+
+                                    <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+
+                                    <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>min $w^T\Sigma$$w=q*R^Tw$</p>
+
+                                    <p class=MsoListParagraphCxSpFirst style='margin-top:0in;margin-right:0in;
+                                    margin-bottom:0in;margin-left:.75in;margin-bottom:.0001pt;mso-add-space:auto;
+                                    text-indent:-.25in;mso-list:l1 level1 lfo5'>w is a vector of portfolio allocation, and sum(w) = 1
+                                    </p>
+
+                                    <p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+                                    margin-bottom:0in;margin-left:.75in;margin-bottom:.0001pt;mso-add-space:auto;
+                                    text-indent:-.25in;mso-list:l1 level1 lfo5'>$\Sigma$ is the covariance matrix for portfolio
+                                    components</p>
+
+                                    <p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+                                    margin-bottom:0in;margin-left:.75in;margin-bottom:.0001pt;mso-add-space:auto;
+                                    text-indent:-.25in;mso-list:l1 level1 lfo5'>q &gt;= 0 is the risk tolerance level</p>
+
+                                    <p class=MsoListParagraphCxSpLast style='margin-top:0in;margin-right:0in;
+                                    margin-bottom:0in;margin-left:.75in;margin-bottom:.0001pt;mso-add-space:auto;
+                                    text-indent:-.25in;mso-list:l1 level1 lfo5'>R is the expected return vector </p>
+
+                            </div>
+
                             <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i>Go Back</button>
                         </div>
                     </div>
@@ -410,7 +577,7 @@
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
                             <!-- Project Details Go Here -->
-                            <h4>Market Trend based on Principle Component Analysis of Portfolio</h4>
+                            <h4>Points of Interest in the Portfolio From Principle Component Analysis</h4>
 
                                  <div class="col-lg-12 plot center">
 
@@ -432,7 +599,47 @@
 
                                  </div>
 
-                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i>Go Back</button>
+                            <div align = "left">
+                                    <br>
+
+                                    <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><b
+                                        style='mso-bidi-font-weight:normal'>Points of Interest based on Principal
+                                        Components Analysis<o:p></o:p></b></p>
+
+                                        <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>One way to
+                                        determine points of interest in the portfolio's past performance is by doing
+                                        principal component analysis, where the analysis can be obtained through
+                                        singular value decomposition. Though the physical interpretation of what is
+                                        doing on during the points of interest is hard to extract.</p>
+
+                                        <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+
+                                        <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>To obtain
+                                        the PCA, a vector X can be transformed into Y by multiplying a matrix P, where
+                                        the columns of P are the eigenvectors of $X^TX$, such that the covariance of Y
+                                        is <span class=SpellE>diagonalized</span>. </p>
+
+                                        <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+                                        .5in'>$PX = Y$</p>
+
+                                        <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+                                        .5in'>$X = U\Sigma$$V^T$</p>
+
+                                        <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+                                        .5in'>$X^TX = U\Sigma^2V^T$</p>
+
+                                        <br>
+                                        <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>The 1-PC is
+                                        the eigenvector corresponding to the largest eigenvalues, which might have the
+                                        most significant contribution to the extract potential relationship between the
+                                        portfolio components and a "latent" factor. In this interpretation, it is
+                                        possible to look at the ratio of the negative values in the corresponding first
+                                        eigenvector. The anxiety detection trigger can be set to such when the ratio of
+                                        the negative values in the corresponding eigenvector increases consecutively
+                                        over 5 days. These points of interest are plotted in red dots. They can be used
+                                        to signal non-financial events' effect on the market. </p>
+                            </div>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i>Go Back</button>
                         </div>
                     </div>
                 </div>

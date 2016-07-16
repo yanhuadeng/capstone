@@ -198,24 +198,25 @@ class PortfolioAnalysis():
 
         p = np.asmatrix(np.mean(port_returns, axis=0))
         C = np.asmatrix(np.cov(port_returns.T))
-
+        weights = []
         for i in xrange(npts):
             w = np.random.random(port_returns.shape[1])
             w = np.asmatrix(w / sum(w))
 
             mus.append(np.array((w * p.T))[0][0])
             sigmas.append(np.array((np.sqrt(w * C * w.T)))[0][0])
+            weights.append(np.array(w)[0])
 
-        return sigmas, mus
+        return sigmas, mus, weights
 
 def main():
     index = ['^GSPC']
     tickers = ['GOOG', 'AAPL', 'MSFT', 'FB']
     # tickers.insert(0, index[0])
 
-    f = open('nasdaq100.txt', 'rb')
-    NASDAQ100 = f.read().strip().split()
-    NASDAQ100.insert(0, index[0])
+    # f = open('nasdaq100.txt', 'rb')
+    # NASDAQ100 = f.read().strip().split()
+    # NASDAQ100.insert(0, index[0])
 
     source = "yahoo"
 
@@ -223,12 +224,17 @@ def main():
     deltaInd = .01
 
     PA = PortfolioAnalysis(tickers, source, period, index)
+    PA.dl_data(PA.tickersidx, PA.source, PA.startdate, PA.enddate)
 
-    risks, returns, allocs = PA.port_opt_classic(PA.port_daily_ret)
+    # risks, returns, allocs = PA.port_opt_classic(PA.port_daily_ret)
     # plt.plot(risks, returns, 'r-s')
 
     # simulated with random w
-    risks_rand, returns_rand = PA.port_alloc_rand(PA.port_daily_ret)
+    risks_rand, returns_rand, weights = PA.port_alloc_rand(PA.port_daily_ret)
+    # print risks_rand
+    # print returns_rand
+    # print np.argmax(returns_rand)
+
     # plt.plot(risks_rand, returns_rand, 'o', markersize=5)
     # plt.xlabel('risks')
     # plt.ylabel('returns')
@@ -241,16 +247,16 @@ def main():
     # plt.show()
 
     # PA.plot_regression()
-    colors = brewer["Spectral"][len(tickers)]
-    fig_corr = figure()
-    for n in range(len(tickers)):
-        fig_corr.scatter(PA.idx_daily_ret.values.T[0], PA.port_daily_ret.ix[:,n].values,
-                         radius=.01*PA.port_daily_ret.max().max(), fill_color = colors[n], fill_alpha=0.2, legend=tickers[n])
-        fig_corr.line(PA.idx_daily_ret.values.T[0], PA.ols_dict.fittedvalues.ix[:,n].values,
-                      color = colors[n])  # , color = colors[n]
-
-    output_file("brewer.html")
-    show(fig_corr)
+    # colors = brewer["Spectral"][len(tickers)]
+    # fig_corr = figure()
+    # for n in range(len(tickers)):
+    #     fig_corr.scatter(PA.idx_daily_ret.values.T[0], PA.port_daily_ret.ix[:,n].values,
+    #                      radius=.01*PA.port_daily_ret.max().max(), fill_color = colors[n], fill_alpha=0.2, legend=tickers[n])
+    #     fig_corr.line(PA.idx_daily_ret.values.T[0], PA.ols_dict.fittedvalues.ix[:,n].values,
+    #                   color = colors[n])  # , color = colors[n]
+    #
+    # output_file("brewer.html")
+    # show(fig_corr)
 
 if __name__ == "__main__":
     main()

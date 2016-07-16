@@ -4,7 +4,10 @@ from bokeh.resources import INLINE
 from flask import Flask, render_template, request, redirect
 from bokeh.palettes import brewer
 
+import numpy as np
+
 from scripts import PortfolioAnalysis, PCA
+
 
 
 app = Flask(__name__)
@@ -51,15 +54,20 @@ def stock():
 
 
     # Portfolio risk plots
-    risks, returns, allocs = PA.port_opt_classic(PA.port_daily_ret)
-    risksrand, returnsrand = PA.port_alloc_rand(PA.port_daily_ret)
+    # risks, returns, allocs = PA.port_opt_classic(PA.port_daily_ret)
+    risksrand, returnsrand, weights= PA.port_alloc_rand(PA.port_daily_ret)
+
+    maxindex = np.argmax(returnsrand)
+    retmax = returnsrand[maxindex]
+    riskmax = risksrand[maxindex]
+    allocs = weights[maxindex]
 
     fig_risk = figure(title="Risks and Returns for " + stockcodeStr,
                      y_axis_label='Returns',
                      x_axis_label='Risks',
                      plot_width=700, plot_height=480,
                      toolbar_location=None)
-    fig_risk.line(risks, returns, color='red')
+    # fig_risk.line(risks, returns, color='red')
     fig_risk.scatter(risksrand, returnsrand,  fill_color = 'red', fill_alpha=0.5) #radius=0.01*max(returnsrand),
     script_risk, div_risk = components(fig_risk, INLINE)
 
@@ -106,7 +114,7 @@ def stock():
     script_neg, div_neg = components(fig_neg, INLINE)
 
     #Port prediction based on maximum risk tolerance
-    past, future = PA.cal_prediction(deltaInd = 0.01, allocs = allocs[0].reshape(1,len(allocs[0])))
+    past, future = PA.cal_prediction(deltaInd = 0.01)
     fig = figure(title="Total Portfolio Returns for "+ stockcodeStr,
                  y_axis_label='Close',
                  x_axis_label = 'Date',
@@ -121,11 +129,13 @@ def stock():
     cssresources = INLINE.render_css()
     coefficients = ((PA.reg_coefficients).ix[1:].T.to_dict()).values()
 
-    allocations = (allocs[0].reshape(1, len(allocs[0])))[0]
-    allocations_dict = dict(zip(stockcode, allocations*100))
+    # allocations = (allocs[0].reshape(1, len(allocs[0])))[0]
+    # allocations_dict = dict(zip(stockcode, allocations*100))
+    allocations_dict = dict(zip(stockcode, allocs * 100))
 
     html = render_template('index.html', coefficients=coefficients,
-                           port_opt_params = (risks[0]*100, returns[0]*100, allocations_dict),
+                           # port_opt_params = (risks[0]*100, returns[0]*100, allocations_dict),
+                           port_opt_params = (riskmax*100, retmax*100, allocations_dict),
                            corr_script=script_corr, corr_div=div_corr,
                            plot_script=script, plot_div=div,
                            risk_script=script_risk, risk_div=div_risk,
@@ -137,5 +147,5 @@ def stock():
     return html
 
 if __name__ == '__main__':
-    app.run(port=3350, debug=True)
+    app.run(port=33350, debug=True)
     #testPort()
