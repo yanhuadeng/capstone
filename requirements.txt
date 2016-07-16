@@ -26,8 +26,6 @@ pytz==2016.4
 PyYAML==3.11
 requests==2.10.0
 requests-file==1.4
-scipy==0.17.1
-scs==1.2.6
 simplejson==3.8.0
 singledispatch==3.4.0.3
 six==1.10.0
