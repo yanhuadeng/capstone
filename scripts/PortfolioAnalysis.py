@@ -8,7 +8,8 @@ import datetime
 # import matplotlib.pyplot as plt
 
 import statsmodels.api as sm
-# import cvxpy
+
+
 from bokeh.plotting import figure, show, output_file
 from bokeh.palettes import brewer
 
@@ -166,30 +167,30 @@ class PortfolioAnalysis():
 
         return brownian_vals
 
-    def port_opt_classic(self, port_returns):
-        p = np.asmatrix(np.mean(port_returns, axis=0))
-        w = cvxpy.Variable(port_returns.shape[1])
-
-        gamma = cvxpy.Parameter(sign='positive')
-        total_ret = w.T * p.T  # doule check the T
-        sigma = np.cov(port_returns.T)
-        risk = cvxpy.quad_form(w, sigma)
-        prob = cvxpy.Problem(cvxpy.Maximize(total_ret - gamma * risk),
-                             [cvxpy.sum_entries(w) == 1, w >= 0])
-
-        N = 40  # number of points for the curve
-        gamma_vals = np.logspace(0.5, 2, num=N)
-        risks = []
-        returns = []
-        allocs = []
-        for i in range(N):
-            gamma.value = gamma_vals[i]
-            prob.solve()
-            risks.append(cvxpy.sqrt(risk).value)
-            returns.append(total_ret.value)
-            allocs.append(w.value.getA1())
-
-        return risks, returns, allocs
+    # def port_opt_classic(self, port_returns):
+    #     p = np.asmatrix(np.mean(port_returns, axis=0))
+    #     w = cvxpy.Variable(port_returns.shape[1])
+    #
+    #     gamma = cvxpy.Parameter(sign='positive')
+    #     total_ret = w.T * p.T  # doule check the T
+    #     sigma = np.cov(port_returns.T)
+    #     risk = cvxpy.quad_form(w, sigma)
+    #     prob = cvxpy.Problem(cvxpy.Maximize(total_ret - gamma * risk),
+    #                          [cvxpy.sum_entries(w) == 1, w >= 0])
+    #
+    #     N = 40  # number of points for the curve
+    #     gamma_vals = np.logspace(0.5, 2, num=N)
+    #     risks = []
+    #     returns = []
+    #     allocs = []
+    #     for i in range(N):
+    #         gamma.value = gamma_vals[i]
+    #         prob.solve()
+    #         risks.append(cvxpy.sqrt(risk).value)
+    #         returns.append(total_ret.value)
+    #         allocs.append(w.value.getA1())
+    #
+    #     return risks, returns, allocs
 
     def port_alloc_rand(self, port_returns):
         npts = 200
