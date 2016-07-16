@@ -9,7 +9,6 @@ import datetime
 
 import statsmodels.api as sm
 
-
 from bokeh.plotting import figure, show, output_file
 from bokeh.palettes import brewer
 
